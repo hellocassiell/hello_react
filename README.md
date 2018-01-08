@@ -61,3 +61,36 @@ React.js 调用你所传给它的方法的时候，并不是通过对象方法�
 ```
 ### state
  React.js 的 setState 把传进来的状态缓存起来，稍后才会更新到 state 上
+ ```
+  handleClickOnLikeButton () {
+    this.setState((prevState) => {
+      return { count: 0 }
+    })
+    this.setState((prevState) => {
+      return { count: prevState.count + 1 } // 上一个 setState 的返回是 count 为 0，当前返回 1
+    })
+    this.setState((prevState) => {
+      return { count: prevState.count + 2 } // 上一个 setState 的返回是 count 为 1，当前返回 3
+    })
+    // 最后的结果是 this.state.count 为 3
+  }
+```
+实际上组件只会重新渲染一次，而不是三次；这是因为在 React.js 内部会把 JavaScript 事件循环中的消息队列的同一个消息中的 setState 都进行合并以后再重新渲染组件。
+
+### 配置组件的props
+```
+const likedText = this.props.likedText || '取消'
+const unlikedText = this.props.unlikedText || '点赞'
+```
+**怎么把 props 传进去呢？在使用一个组件的时候，可以把参数放在标签的属性当中，所有的属性都会作为 props 对象的键值**
+   
+```
+render () {
+    return (
+      <div>
+        <LikeButton likedText='已赞' unlikedText='赞' />
+      </div>
+    )
+  }
+```
+   
