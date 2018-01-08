@@ -21,3 +21,19 @@
           : null
         }
  ```
+
+ ## 组件
+ 自定义的组件都必须要用大写字母开头
+
+ 在 Header组件 里面使用 Title组件
+ ```
+ class Header extends Component {
+  render () {
+    return (
+      <div>
+        <Title />
+      </div>
+    )
+  }
+}
+```
