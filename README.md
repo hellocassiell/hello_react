@@ -93,4 +93,15 @@ render () {
     )
   }
 ```
-   
+默认配置 defaultProps
+```
+ static defaultProps = {
+    likedText: '取消',
+    unlikedText: '点赞'
+  }
+
+```
+**props 一旦传入进来就不能改变**
+但这并不意味着由 props 决定的显示形态不能被修改。组件的使用者可以主动地通过重新渲染的方式把新的 props 传入组件当中，这样这个组件中由 props 决定的显示形态也会得到相应的改变。
+
+## 使用 map 渲染列表数据
