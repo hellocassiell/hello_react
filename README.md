@@ -105,3 +105,23 @@ render () {
 但这并不意味着由 props 决定的显示形态不能被修改。组件的使用者可以主动地通过重新渲染的方式把新的 props 传入组件当中，这样这个组件中由 props 决定的显示形态也会得到相应的改变。
 
 ## 使用 map 渲染列表数据
+```
+class Index extends Component {
+  render () {
+    return (
+      <div>
+        {users.map((user) => {
+          return (
+            <div>
+              <div>姓名：{user.username}</div>
+              <div>年龄：{user.age}</div>
+              <div>性别：{user.gender}</div>
+              <hr />
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
+}
+```
