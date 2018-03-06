@@ -26,8 +26,13 @@
  ```
   <h1 onClick={this.handleClickOnTitle}>React 小书</h1>
 ```
+handleClickOnTitle  方法 驼峰命名法
+这些 on* 的事件监听只能用在普通的 HTML 的标签上，而不能用在组件标签上。
+
+
 ##### event 对象
 React.js 中的 event 对象并不是浏览器提供的，而是它自己内部所构建的。
+React.js 将浏览器原生的 event 对象封装了一下，对外提供统一的 API 和属性，这样你就不用考虑不同浏览器的兼容性问题。
 ```
 handleClickOnTitle (e) {
     console.log(e.target.innerHTML)
